@@ -67,3 +67,11 @@ var socket = io('ws://localhost:8081');
 （5）服务器端接收到用户发送的消息，广播该消息给当前连接的所有客户端；
 
 （6）客户端接收服务器端发送来的消息，判断昵称是否是自己，进行相应对话框显示
+
+
+
+安装测试：
+
+node.exe F:\source-tree\chatroom\js\app.js
+
+浏览器打开  index.html 即可
