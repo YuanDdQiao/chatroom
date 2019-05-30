@@ -14,6 +14,7 @@ socket.io封装了Websocket以及其他的一些协议，并且实现了Websocke
 客户端与服务器端之间发送消息是用emit
 
 例如客户端向服务端发送登录请求
+
 socket.emit('login',{username:uname}) login是自定义的事件，后面是带的参数
 
 （2）socket.on
@@ -23,8 +24,10 @@ socket.on('login',function(data){})在回调函数中进行处理
 同理，服务器端也可以向客户端发送事件，只要客户端也对该事件进行监听就行
 
 （3）io.sockets.emit
-服务器端向连接的所有客户端发送消息得用io.sockets.emit
+
+服务器端向连接的所有客户端发送消息得用 io.sockets.emit
 
 （4）socket.broadcast.emit
+
 给除了自己以外的客户端广播消息
 
