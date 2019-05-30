@@ -31,3 +31,39 @@ socket.on('login',function(data){})在回调函数中进行处理
 
 给除了自己以外的客户端广播消息
 
+
+总结：
+
+（1）下载node.js；
+
+（2）安装socket.io；
+
+npm install socket.io
+
+（3）服务器端构建http服务，引入socket.io，并设置监听端口
+
+var app = require('http').createServer()
+
+var io = require('socket.io')(app);
+
+var PORT = 8081;
+
+app.listen(PORT);
+
+（4）客户端进行socket连接，使用websocket协议
+
+var socket = io('ws://localhost:8081');
+
+再回顾一下整个逻辑流程：
+
+（1）客户端获取用户输入昵称，发送给服务器端；
+
+（2）服务器端接收昵称，判断是否新用户，是则发送登录成功事件，否则发送登录失败事件；
+
+（3）客户端收到服务器端发送的登录成功或失败事件，进行相应处理；
+
+（4）浏览器端获取登录用户输入的消息，将消息与用户昵称一起发送给服务器端；
+
+（5）服务器端接收到用户发送的消息，广播该消息给当前连接的所有客户端；
+
+（6）客户端接收服务器端发送来的消息，判断昵称是否是自己，进行相应对话框显示
